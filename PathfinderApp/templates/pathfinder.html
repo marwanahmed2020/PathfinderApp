@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinding Simulator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="message" class="message"></div>
+        <div class="controls">
+            <div class="tools">
+                <button id="wallTool" class="tool-btn active">Wall</button>
+                <button id="startTool" class="tool-btn">Start</button>
+                <button id="endTool" class="tool-btn">End</button>
+                <button id="eraserTool" class="tool-btn">Eraser</button>
+            </div>
+            <button id="startBtn">Start Pathfinding</button>
+            <button id="resetBtn">Reset Grid</button>
+            <div class="algorithm-select">
+                <label for="algorithm">Algorithm:</label>
+                <select id="algorithm">
+                    <option value="astar">A*</option>
+                    <option value="dijkstra">Dijkstra's</option>
+                </select>
+            </div>
+            <div class="grid-size">
+                <label for="gridSize">Grid Size:</label>
+                <input type="number" id="gridSize" value="20" min="10" max="50">
+            </div>
+            <div class="speed-control">
+                <label for="speedSlider">Speed:</label>
+                <input type="range" id="speedSlider" min="1" max="10" value="5">
+                <span id="speedValue">5</span>
+            </div>
+        </div>
+        <canvas id="gridCanvas"></canvas>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4CAF50;"></div>
+                <div class="legend-text">Start</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #f44336;"></div>
+                <div class="legend-text">End</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #333;"></div>
+                <div class="legend-text">Wall</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #2196F3;"></div>
+                <div class="legend-text">Visited</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #FFC107;"></div>
+                <div class="legend-text">Path</div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/pathfinder.js' %}"></script>
+</body>
+</html> 
